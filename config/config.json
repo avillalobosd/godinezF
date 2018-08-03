@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": "root",
+    "password": "",
+    "database": "exampledb",
+    "host": "localhost",
+    "dialect": "mysql",
+    "port": 3306
+  },
+  "test": {
+    "username": "root",
+    "password": "root",
+    "database": "godinezbook",
+    "host": "localhost",
+    "dialect": "mysql",
+    "logging": false,
+    "port": 8889
+
+  },
+  "production": {
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
+  }
+}

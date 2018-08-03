@@ -1,0 +1,217 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+
+<head>
+
+  <title>Social Search Results</title>
+
+  <!-- Required meta tags always come first -->
+  {{!--
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge"> --}}
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="Bootstrap/dist/css/bootstrap-reboot.css">
+  <link rel="stylesheet" type="text/css" href="Bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="Bootstrap/dist/css/bootstrap-grid.css">
+  
+
+  <!-- Main Styles CSS -->
+  <link rel="stylesheet" type="text/css" href="css/main.min.css">
+  <link rel="stylesheet" type="text/css" href="css/fonts.min.css">
+
+  <!-- Main Font -->
+  <script src="js/webfontloader.min.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ['Roboto:300,400,500,700:latin']
+      }
+    });
+  </script>
+
+</head>
+<div class="header-spacer"></div>
+<div class="row">
+
+  <header class="header header--logout" id="site-header">
+
+
+    <div class="page-title">
+      <h6>GodinezBook!</h6>
+    </div>
+    <div style="margin-left:15px;margin-top:27px;margin-bottom:auto;" class="">
+      <h6>
+        <a href="/wall">Wall</a>
+      </h6>
+    </div>
+    <div style="margin-left:15px;margin-top:27px;margin-bottom:auto;" class="">
+      <h6>
+        <a href="/friends">Friends</a>
+      </h6>
+    </div>
+    <div style="margin-left:15px;margin-top:27px;margin-bottom:auto;" class="">
+      <h6>
+        <a href="/tanda">Tanda</a>
+      </h6>
+    </div>
+
+    <div class="header-content-wrapper">
+
+      <div class="form--login-logout">
+        <form class="form-inline">
+          <div class="form-group"></div>
+          <h4 style="color:red;">Welcome</h4>
+          <h4 style="color:white;" id="nombreUS"></h4>
+          <button id="logOut" class="btn btn-primary float-right">Logout</button>
+        </form>
+
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <h2>Create Tanda!</h2>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Nombre de Tanda</label>
+          <input style="background-color:white;" type="text" class="form-control" id="nombreTanda" placeholder="Nombre Tanda">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Numero de Participantes</label>
+          <select style="background-color:white;" id="participantes">
+            
+        
+            <option>4</option>
+          
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Monto a dar por período de Tiempos</label>
+          <select style="background-color:white;" id="monto">
+            <option>100</option>
+            <option>200</option>
+            <option>300</option>
+            <option>500</option>
+            <option>1000</option>
+          </select>
+        </div>
+
+        <button id="sendTanda" class="btn btn-primary float-right">Submit</button>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container"></div>
+  
+       {{#each examples}}
+      <div class="col-8 offset-2 card">
+        <div data-id="{{this.id}}" class="card-body">
+          <table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Creada Por</th>
+      <th scope="col">Nombre Tanda</th>
+      <th scope="col">Capacidad</th>
+      <th scope="col">Inscritos</th>
+      <th scope="col">Monto de Tanda</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"></th>
+      <td>{{this.organizadorNombre}}</td>
+      <td>{{this.nombre}}</td>
+      <td>{{this.capacidad}}</td>
+      <td>{{this.inscritos}}</td>
+      <td>{{this.monto}}</td>
+      <td>{{this.activa}}</td>
+    </tr>
+    <tr>
+      <th scope="row"></th>
+      <td></td>
+      <td></td>
+      <td data-id={{this.id}}><button style="align:center;"  id="{{this.id}}" class="btn btn-primary unirte"> Unirte </button></td>
+     
+      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Turno</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Ronda 1</th>
+      <th scope="col">Ronda 2</th>
+      <th scope="col">Ronda 3</th>
+      <th scope="col">Ronda 4</th>
+      
+    </tr>
+  </thead>
+   <table class="table">
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>{{this.user1}}</td>
+      <td><img style="width:30px;"src="/images/money.png"</td>
+      <td casilla="up12"><button id="pago" type="button" class="btn btn-success">PAGO</button></td>
+      <td casilla="up13"><button id="pago" type="button" class="btn btn-success">PAGO</button></td>
+      <td casilla="up14"><button id="pago" type="button" class="btn btn-success">PAGO</button></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>{{this.user2}}</td>
+      <td casilla="up21"><button id="pago" type="button" class="btn btn-success">PAGO</button></td>
+      <td><img style="width:30px;"src="/images/money.png"</td>
+      
+      <td casilla="up23"><button id="pago" type="button" class="btn btn-success">PAGO</button></td>
+      <td casilla="up24"><button id="pago" type="button" class="btn btn-success">PAGO</button></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>{{this.user3}}</td>
+      <td casilla="up31"><button id="pago" type="button" class="btn btn-success">PAGO</button></td>
+      <td casilla="up32"><button id="pago" type="button" class="btn btn-success">PAGO</button></td>
+      <td><img style="width:30px;"src="/images/money.png"</td>
+      <td casilla="up34"><button id="pago" type="button" class="btn btn-success">PAGO</button></td>
+    </tr>
+     <tr>
+      <th scope="row">4</th>
+     <td>{{this.user4}}</td>
+      <td casilla="up41"><button id="pago" type="button" class="btn btn-success">PAGO</button></td>
+      <td casilla="up42"><button id="pago" type="button" class="btn btn-success">PAGO</button></td>
+      <td casilla="up43"><button id="pago" type="button" class="btn btn-success">PAGO</button></td>
+      <td><img style="width:30px;"src="/images/money.png"</td>
+
+      
+      
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+      </div>
+      
+      {{/each}}
+      <td></td>
+      <td></td>
+      
+    </tr>
+    
+  </tbody>
+  
+</table>
+      
+      
+
+    </div>
+  </div>
+
+
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/js/tanda.js"></script>
